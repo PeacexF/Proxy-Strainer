@@ -1,0 +1,3 @@
+proxycon.py
+data/*.txt
+!data/proxies.txt
