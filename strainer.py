@@ -171,7 +171,7 @@ def validate_request(proxy):    # Request validation part + timeout configuratio
 
 file_lock = Lock()
 
-def validate_proxies(exitfile, proxy_list, max_workers=120):   # Main function with worker configuration
+def validate_proxies(exitfile, proxy_list, max_workers=30):   # Main function with worker configuration
     results = []
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -225,7 +225,7 @@ if __name__ == "__main__":      ## Feel free to change the main logic, it's simp
     print(f"\nChecking {len(once_checked)} proxies\nstarting second filtering at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}") 
     validate_proxies("data/2check.txt", once_checked)    # Double-checking the proxies after first check & retries
 
-    print(f"completed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\ninitially: {len(proxies)}\nafter first check: {len(once_checked)}\nafter second check: {len(fetch_proxies("data/2check.txt"))}")
+    print(f"completed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\ninitially: {len(proxies)}\nafter first check: {len(once_checked)}\nafter second check: {len(fetch_proxies('data/2check.txt'))}")
 
     with open("data/2check.txt") as file:
         for line in file:
