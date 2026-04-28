@@ -171,7 +171,7 @@ def validate_request(proxy):    # Request validation part + timeout configuratio
 
 file_lock = Lock()
 
-def validate_proxies(exitfile, proxy_list, max_workers=30):   # Main function with worker configuration
+def validate_proxies(exitfile, proxy_list, max_workers=120):   # Main function with worker configuration
     results = []
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
